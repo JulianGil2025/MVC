@@ -1,4 +1,5 @@
 <?php
+require_once("bd/conexion.php");
 
 class modelo_datos{
 
@@ -13,7 +14,7 @@ class modelo_datos{
     }
 
     public function obtener_datos(){
-        $consulta=$this->db->query("select * from datos;");
+        $consulta=$this->db->query("select * from personas;");
     while($filas=$consulta->fetch_assoc()){
         $this->personas[]=$filas;
 
