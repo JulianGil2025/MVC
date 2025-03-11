@@ -1,32 +1,44 @@
 <?php
-
-
+require_once("../bd/conexion.php");
 class modelo_persona{
     
+    private  $db; 
+    private $personas;
 
-    public function datos_Persona(){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $nombre = $_POST["nombre"];
-            $apellido_Paterno = $_POST["apellido_Paterno"];
-            $apellido_Materno = $_POST["apellido_Materno"];
-            $edad = $_POST["edad"];
-            $correo = $_POST["correo"];
-
-
-            echo "<br>Aqui van los datos modelo";
-             echo "<br> Nombre  ",$nombre;
-             echo "<br>apellido_Paterno  ",$apellido_Paterno;
-             echo "<br> apellido_Materno  ",$apellido_Materno;
-             echo "<br>  EDAD ",$edad;
-             echo "<br> correo ",$correo;
-
-        }else{
-            echo "Sin datos enviados";
-        }
-       
-         
+    public function __construct()
+    {
+       $this-> db=conexion::conexion();
+        $this-> personas=array();
     }
 
+    
+    public function obtener_datos(){
+        $consulta=$this->db->query("select * from datos;");
+    while($filas=$consulta->fetch_assoc()){
+        $this->personas[]=$filas;
+    }
+    return $this->personas;
 }
+
+
+   public function crearPersona(){
+
+   }
+
+   public function eliminarPersona(){
+
+
+
+    
+   }
+
+   public function actualizarPersona(){
+
+   }
+
+
+
+}
+ 
 
 ?>
