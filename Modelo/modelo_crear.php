@@ -23,6 +23,8 @@ $db=conexion::conexion();
         
          if ($db->query($sql) === TRUE) {
            echo "Datos ingresado";
+           header("Location: "."http://localhost/mvc");
+die();
           } else {
             echo "Error: " . $sql . "<br>" . $db->error;
           }

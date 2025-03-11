@@ -6,17 +6,9 @@
     <title>Vista</title>
 </head>
 <body>
-
-<form action="Modelo/modelo_crear.php"  method="post">
-  Nombre: <input type="text" name="nombre"><br>
-  Apellido Paterno: <input type="text" name="apellido_Paterno"><br>
-  Apellido Materno: <input type="text" name="apellido_Materno"><br>
-  Edad: <input type="number" name="edad"><br>
-  Correo Eletrico: <input type="text" name="correo">
-  <input type="submit">
-</form>
-
-
+<br><br>
+<input type="button" onclick="location='Vista/vista_crear.php'"  value="Agregar Persona"/>
+<br><br>
 <?php
             foreach ($datos as $dato) {
                 echo $dato["id_persona"]."<br/>";
@@ -27,6 +19,7 @@
                 echo $dato["correo"]."<br/>";
             }
 ?>
+
 
 
 <br><br>
