@@ -8,7 +8,7 @@
 <body>
 
 <h2>Ingresa todos los Datos</h2>
-<form action="../Modelo/modelo_crear.php"  method="post">
+<form action="../Controlador/controlador_crear.php"  method="post">
   Nombre: <input type="text" name="nombre"><br>
   Apellido Paterno: <input type="text" name="apellido_Paterno"><br>
   Apellido Materno: <input type="text" name="apellido_Materno"><br>

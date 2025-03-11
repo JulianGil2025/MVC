@@ -21,23 +21,6 @@ class modelo_persona{
 }
 
 
-   public function crearPersona(){
-
-   }
-
-   public function eliminarPersona(){
-
-
-
-    
-   }
-
-   public function actualizarPersona(){
-
-   }
-
-
-
 }
  
 
