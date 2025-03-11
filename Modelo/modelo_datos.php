@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__."\..\bd\conexion.php";
+
 class modelo_datos{
 
     private  $db; 
@@ -17,48 +19,34 @@ class modelo_datos{
 
     }
     return $this->personas;
- 
-}
+    }
 
 
-public function insertar_datos(){
-
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nombre = $_POST["nombre"];
-        $apellido_Paterno = $_POST["apellido_Paterno"];
-        $apellido_Materno = $_POST["apellido_Materno"];
-        $edad = $_POST["edad"];
-        $correo = $_POST["correo"];
-    
-    
-        echo "<br>Estos son los datos a insertar <br>";
-         echo "<br> Nombre  ",$nombre;
-         echo "<br>apellido_Paterno  ",$apellido_Paterno;
-         echo "<br> apellido_Materno  ",$apellido_Materno;
-         echo "<br>  EDAD ",$edad;
-         echo "<br> correo ",$correo;
-    
-
-        // $insertar = "INSERT INTO datos into(NULL,$nombre,$apellido_Paterno,$apellido_Materno,$edad,$correo);";
-        
-        // if ($this->db->query($insertar) === TRUE) {
-            //echo "Datos ingresado";
-        //  } else {
-          //  echo "Error: " . $insertar . "<br>" . $this->db->error;
-         // }
-          
-         // $this->db->close();
-
-    
-    }else{
-        echo "<br>Sin datos insertados";
+    public function obten_una_persona($busqueda){
+        $consulta =$this->db->query("SELECT id_persona, nombre, apellido_paterno, apellido_materno, edad, correo FROM datos WHERE id_persona = ".intval($busqueda).";");
+        while($filas=$consulta->fetch_assoc()){
+            $this->personas[]=$filas;
         
     }
-    
-    
+         return $this->personas;
+    }
+
+    public function guardar_datos($datos){
+        if(empty($datos)){
+        }else{      
+        $id_persona = intval($datos['id_persona']);
+        $nombre = $datos['nombre'];
+        $apellido_paterno = $datos['apellido_paterno'];
+        $apellido_materno = $datos['apellido_materno'];
+        $edad = intval($datos['edad']);
+        $correo = $datos['correo'];
+        $consulta=$this->db->query("UPDATE datos SET nombre =' $nombre' , apellido_paterno = '$apellido_paterno', 
+                                    apellido_materno = '$apellido_materno', edad = $edad , correo= '$correo' 
+                                    WHERE id_persona = $id_persona;");
+        }
+    }
 }
 
-}
+
 
 ?>

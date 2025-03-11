@@ -12,6 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $edad = $_POST["edad"];
         $correo = $_POST["correo"];
     modelo_crear::agregarDato($conexion, $nombre, $apellido_Paterno, $apellido_Materno, $edad, $correo);
-    header("Location: http://localhost/mvc");
+    header("Location: http://localhost/mvc/index.php");
   }
 ?>

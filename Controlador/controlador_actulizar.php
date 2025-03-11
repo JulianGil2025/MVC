@@ -2,7 +2,7 @@
 require_once("../bd/conexion.php");
 $db=conexion::conexion();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $id_persona = $_POST["id_persona"];
         $nombre = $_POST["nombre"];
         $apellido_Paterno = $_POST["apellido_paterno"];

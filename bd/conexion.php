@@ -1,7 +1,5 @@
 <?php
 
-
-
 class conexion {
     private $host;
     private $usuario;
