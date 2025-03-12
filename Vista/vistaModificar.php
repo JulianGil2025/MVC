@@ -1,8 +1,6 @@
 <?php
-
-require_once  __DIR__."\..\Modelo\modelo_datos.php";
-require_once __DIR__."\..\Controlador\indexController.php";
-$conexion = new modelo_datos();
+require_once  ('../Modelo/modelo_persona.php');
+$conexion = new modelo_persona();
 $datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
 
   ?>

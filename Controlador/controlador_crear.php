@@ -1,17 +1,10 @@
 <?php
-require_once("../Modelo/modelo_crear.php");
-require_once("../bd/conexion.php");
-
-$conexion = new conexion();
+require_once("../Modelo/modelo_persona.php");
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST["nombre"];
-        $apellido_Paterno = $_POST["apellido_Paterno"];
-        $apellido_Materno = $_POST["apellido_Materno"];
-        $edad = $_POST["edad"];
-        $correo = $_POST["correo"];
-    modelo_crear::agregarDato($conexion, $nombre, $apellido_Paterno, $apellido_Materno, $edad, $correo);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    modelo_persona::agregarDato($_POST);
     header("Location: http://localhost/mvc/index.php");
   }
 ?>
