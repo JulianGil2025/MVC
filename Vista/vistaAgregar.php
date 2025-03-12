@@ -12,7 +12,7 @@
 <body>
 
 <h2>Ingresa todos los Datos</h2>
-<form action="../Controlador/controlador_crear.php"  method="post">
+<form action="../Controlador/controladorPersona2.php?metodo=add"  method="post">
 <table class="table">
 <tr class="table-primary">
                     <th class= "table-primary">Nombre</th>
@@ -29,7 +29,7 @@
 <td> <input type="email" name="correo"></td>
   </tr>
   </table>
-  <a class="button btn btn-primary" href="\MVC\index.php">Regresar</a>
+  <a class="button btn btn-primary" href="\MVC\index2.php">Regresar</a>
   <input class="button btn btn-primary" type="submit" value="Guardar Datos ">
 </form>
 </body>

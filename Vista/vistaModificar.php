@@ -1,7 +1,6 @@
 <?php
-require_once  ('../Modelo/modelo_persona.php');
-$conexion = new modelo_persona();
-$datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
+require_once  ('../Modelo/modelo_persona2.php');
+$datos = modelo_persona::obten_una_persona($_REQUEST['id_persona']);
 
   ?>
 <!DOCTYPE html>
@@ -21,7 +20,7 @@ $datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
               <br>
               <br>
             </div>
-        <form method="post" action="\MVC\index.php">
+        <form method="POST" action="../Controlador/controladorPersona2.php?metodo=modify">
             <table class="table">
             
               <tr class="table-primary">
@@ -47,7 +46,7 @@ $datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
 
            
             <div>
-                <a class="button btn btn-primary" href="\MVC\index.php">Regresar</a>
+                <a class="button btn btn-primary" href="\MVC\index2.php">Regresar</a>
                 <button class="btn btn-primary" type="submit" >Guardar</button>
                 
             </div>

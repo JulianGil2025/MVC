@@ -1,7 +1,4 @@
 <?php
-
-
-
 class conexion {
     private $host;
     private $usuario;
@@ -22,11 +19,6 @@ class conexion {
       return $resultado;
     }
 
-    public static function conexion(){
-        $conexion=new mysqli("localhost", "julian", "123456", "personas");
-        $conexion->query("SET NAMES 'utf8'");
-        return $conexion;
-    }
 }
 
 ?>

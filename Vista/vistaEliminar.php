@@ -1,10 +1,7 @@
 <?php
 require_once  ('../Modelo/modelo_persona.php');
-
-$conexion = new modelo_persona();
-$datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
+$datos = modelo_persona::obten_una_persona($_REQUEST['id_persona']);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +43,7 @@ $datos = $conexion->obten_una_persona($_REQUEST['id_persona']);
 
            
             <div>
-                <button class="button btn btn-primary" href="\MVC\index.php">Regresar</button>
+                <button class="button btn btn-primary" href="\MVC\index2.php">Regresar</button>
                 <button class="btn btn-primary" type="submit" >Eliminar</button>
                 
             </div>

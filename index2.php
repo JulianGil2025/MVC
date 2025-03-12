@@ -1,10 +1,7 @@
-  <?php
-require_once "Modelo/modelo_persona.php";
-$conexion = new modelo_persona();
-$datos = $conexion->obtener_datos();
-$conexion->guardar_datos($_REQUEST);
-
-  ?>
+<?php
+require_once "Modelo/modelo_persona2.php";
+$datos = modelo_persona::obtener_datos();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +12,6 @@ $conexion->guardar_datos($_REQUEST);
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   
   <title>CRUD</title>
-
-  <style>
-        /* Estilos del fondo oscuro */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Contenedor del formulario */
-        .modal-contenido {
-            background-color: white;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            width: 300px;
-            position: relative;
-            text-align: center;
-        }
-
-        /* Botón para cerrar */
-        .cerrar {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-        }
-    </style>
-
 </head>
 <body>
     <div>
@@ -84,8 +46,8 @@ $conexion->guardar_datos($_REQUEST);
                     <td><?= $valor['apellido_materno']; ?></td>
                     <td><?= $valor['edad']; ?></td>
                     <td><?= $valor['correo']; ?></td>
-                    <td ><a class="button btn btn-primary" href="Vista/vistaModificar.php?id_persona=<?= $valor['id_persona'] ?>">Modificar</a></td>
-                    <td ><a class="button btn btn-primary" href="Vista/vistaEliminar.php?id_persona=<?= $valor['id_persona'] ?>">Eliminar</a></td>
+                    <td ><a class="button btn btn-primary" href="Vista/vistaModificar.php?id_persona=<?= $valor['id_persona']?>">Modificar</a></td>
+                    <td ><a class="button btn btn-primary" href="Controlador/controladorPersona2.php?id_persona=<?= $valor['id_persona']?>&metodo=delete">Eliminar</a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
@@ -96,46 +58,6 @@ $conexion->guardar_datos($_REQUEST);
         <?php endif; ?>
     </div>
 
-    <button onclick="mostrarModal()">Agregar un Datos</button>
-
-  
-<div id="miModal" class="modal">
-    <div class="modal-contenido">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <h1>Insertar datos</h1>
-        <form action="controller.php" method="post">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre"><br><br>
-
-            <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos"><br><br>
-
-            <label for="edad">Edad:</label>
-            <input type="number" id="edad" name="edad"><br><br>
-
-            <input type="submit" value="Insertar">
-        </form>
-    </div>
-</div>
-
-
-
-
-<script>
-    function mostrarModal() {
-        document.getElementById("miModal").style.display = "block";
-    }
-
-    function cerrarModal() {
-        document.getElementById("miModal").style.display = "none";
-    }
-    window.onclick = function(event) {
-        var modal = document.getElementById("miModal");
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
 
 </body>
 </html>
