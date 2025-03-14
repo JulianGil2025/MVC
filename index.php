@@ -65,7 +65,6 @@ $conexion->guardar_datos($_REQUEST);
             </div>
         
             <table class="table">
-            
               <tr class="table-primary">
                     <th class= "table-primary">ID</th>
                     <th class= "table-primary">Nombre</th>
@@ -83,9 +82,8 @@ $conexion->guardar_datos($_REQUEST);
                     <td><?= $valor['apellido_paterno']; ?></td>
                     <td><?= $valor['apellido_materno']; ?></td>
                     <td><?= $valor['edad']; ?></td>
-                    <td><?= $valor['correo']; ?></td>                    
-                    <td ><a class="button btn btn-primary" href="Vista/vistaModificar.php?id_persona=<?= $valor['id_persona'] ?>">Modificar</a></td>
-                    <td ><a class="button btn btn-primary" onclick="formularioModificar()" href="#modificarDatos?id_persona=<?= $valor['id_persona']?>" >Modificar</a></td>
+                    <td><?= $valor['correo']; ?></td>          
+                    <td ><a class="button btn btn-primary" onclick="formularioModificar()" href="#modificarDatos?id_persona=<?= $registro['id_persona'] ?>" id_persona="<?= $registro['id'] ?>">Modificar1</a></td>
                     <td ><a class="button btn btn-primary" onclick="formularioeliminar()"  href="#eliminarDato?id_persona=<?=$valor['id_persona'] ?>">Eliminar</a></td>
                     </tr>
                 <?php endforeach; ?>
@@ -192,19 +190,25 @@ $conexion->guardar_datos($_REQUEST);
  </script>
 
 
-
 <div id="modificarDatos" class="modal">
     <div class="modal-contenido">
         <span class="cerrar" onclick="cerrarFormularioModoficar()">&times;</span>
+        <?php
+
+    echo "". $valor['id_persona'];
+?>
 
 <p>Datos a Actulizar</p> 
-
 <form method="post" action="\MVC\index.php">
+   
+
+
             <table class="table">
             
+    
               <tr class="table-primary">                    
                 </tr>
-                <?php foreach ($datos as $clave => $valor): ?> 
+            
                     <tr>
                     <th class= "table-primary">ID</th>
                     <td><input type="text" readonly name="id_persona" value=<?php echo $valor['id_persona']?>></td>
@@ -230,11 +234,7 @@ $conexion->guardar_datos($_REQUEST);
                     <th class= "table-primary">Correo</th>
                     <td><input type="text" name="correo" value=<?php echo $valor['correo']  ?>></td>
                     </tr>
-                
-                <?php endforeach; ?>
             </table>
-
-           
             <div>
                 <a class="button btn btn-primary" onclick="cerrarFormularioModoficar()" >Regresar</a>
                 <button class="btn btn-primary" type="submit" >Guardar</button>
@@ -256,7 +256,11 @@ $conexion->guardar_datos($_REQUEST);
         if (event.target === modal) {
             modal.style.display = "none";
         }
-    }   
+    } 
+
+
+
+
  </script>
 
 
